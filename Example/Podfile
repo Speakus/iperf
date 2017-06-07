@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'iperf_Example' do
+  pod 'iperf', :path => '../'
+
+  target 'iperf_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

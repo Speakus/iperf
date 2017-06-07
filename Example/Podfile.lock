@@ -1,0 +1,16 @@
+PODS:
+  - iperf (0.1.0)
+
+DEPENDENCIES:
+  - iperf (from `../`)
+
+EXTERNAL SOURCES:
+  iperf:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  iperf: f68b2edb13508e26ec8fbd9a6ca8a886bf3e4f55
+
+PODFILE CHECKSUM: 42dcdd633671037db13f5c004a59dc6d2597c7a5
+
+COCOAPODS: 1.2.1
