@@ -25,7 +25,7 @@
 #include "iperf_locale.h"
 #include "net.h"
 
-void runIperfTest(nonnull NSString * server, IperfTestDoneCallback callback) {
+void runIperfTest(NSString * _Nonnull server, IperfTestDoneCallback callback) {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSString *path = [NSTemporaryDirectory() stringByAppendingPathComponent:@"iperf3.XXXXXX"];
         char buf[PATH_MAX];

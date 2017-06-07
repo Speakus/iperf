@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'iperf'
-  s.version          = '0.3.3'
+  s.version          = '0.3.4'
   s.summary          = 'iperf3 as library to use via cocoapod'
 
 # This description is used to generate tags and improve search results.
@@ -32,7 +32,7 @@ This repository inspired by: https://github.com/yeahdongcn/iperf-iOS
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'iperf/Classes/*'
+  s.source_files = [ 'iperf/Classes/*', 'iperf/Classes/iperf/*.c' ]
   s.preserve_paths = [ 'iperf/Classes/*', 'iperf/Classes/iperf/*' ]
 
   # s.resource_bundles = {
