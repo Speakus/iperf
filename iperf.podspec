@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'iperf'
-  s.version          = '0.3.8'
+  s.version          = '0.4.0'
   s.summary          = 'iperf3 as library to use via cocoapod'
 
 # This description is used to generate tags and improve search results.

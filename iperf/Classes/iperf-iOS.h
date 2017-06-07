@@ -7,7 +7,7 @@
 extern "C" {
 #endif //__cplusplus
 
-typedef void (^IperfTestDoneCallback)(NSString * _Nullable jsonResult);
+typedef void (^IperfTestDoneCallback)(NSString * _Nullable jsonResult, NSString * _Nullable error);
 
 void runIperfTest(NSString * _Nonnull server, int testSeconds,
                   _Nonnull IperfTestDoneCallback callback);
