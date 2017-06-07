@@ -25,8 +25,9 @@
 #include "iperf/iperf_locale.h"
 #include "iperf/net.h"
 
-void runIperfTest(NSString * _Nonnull server, IperfTestDoneCallback callback) {
-    dispatch_async(dispatch_get_main_queue(), ^{
+void runIperfTest(NSString * _Nonnull server, int testSeconds,
+                  _Nonnull IperfTestDoneCallback callback) {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSString *path = [NSTemporaryDirectory() stringByAppendingPathComponent:@"iperf3.XXXXXX"];
         char buf[PATH_MAX];
         [path getCString:buf maxLength:PATH_MAX encoding:NSUTF8StringEncoding];
@@ -38,6 +39,7 @@ void runIperfTest(NSString * _Nonnull server, IperfTestDoneCallback callback) {
             iperf_err(NULL, "create new test error - %s", error);
         }
 
+        // setup test params
         iperf_defaults(test);
         iperf_set_verbose(test, 1);
         iperf_set_test_role(test, 'c');
@@ -45,6 +47,7 @@ void runIperfTest(NSString * _Nonnull server, IperfTestDoneCallback callback) {
         iperf_set_test_server_port(test, 5201);
         iperf_set_test_template(test, buf);
 //        iperf_set_test_authentication(test, "authentication");
+        iperf_set_test_duration(test, testSeconds);
         // Comment out this line to see to realtime log
         iperf_set_test_json_output(test, 1);
 
@@ -57,7 +60,9 @@ void runIperfTest(NSString * _Nonnull server, IperfTestDoneCallback callback) {
         if (iperf_get_test_json_output_string(test)) {
             output = @(iperf_get_test_json_output_string(test));
         }
-        callback(output);
         iperf_free_test(test);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            callback(output);
+        });
     });
 }
