@@ -1,6 +1,6 @@
 #import "iperf-iOS.h"
 
-#include "iperf_config.h"
+#include "iperf/iperf_config.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,11 +19,11 @@
 #include <netdb.h>
 #include <netinet/tcp.h>
 
-#include "iperf.h"
-#include "iperf_api.h"
-#include "units.h"
-#include "iperf_locale.h"
-#include "net.h"
+#include "iperf/iperf.h"
+#include "iperf/iperf_api.h"
+#include "iperf/units.h"
+#include "iperf/iperf_locale.h"
+#include "iperf/net.h"
 
 void runIperfTest(NSString * _Nonnull server, IperfTestDoneCallback callback) {
     dispatch_async(dispatch_get_main_queue(), ^{
