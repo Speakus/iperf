@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'iperf'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of iperf.'
+  s.version          = '0.3.1'
+  s.summary          = 'iperf3 as library to use via cocoapod'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,9 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+This repository to have simple dependency for iOS project with iperf3
+Original iperf is available here: https://github.com/esnet/iperf
+This repository inspired by: https://github.com/yeahdongcn/iperf-iOS
                        DESC
 
   s.homepage         = 'https://github.com/Speakus/iperf'
@@ -31,7 +33,7 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'iperf/Classes/**/*'
-  
+
   # s.resource_bundles = {
   #   'iperf' => ['iperf/Assets/*.png']
   # }
